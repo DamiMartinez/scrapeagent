@@ -1,0 +1,50 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report a bug!
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Run `adk web`
+        2. Ask "..."
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+    validations:
+      required: true
+
+  - type: dropdown
+    id: model
+    attributes:
+      label: Model used
+      options:
+        - gemini/gemini-2.5-flash (default)
+        - gemini/gemini-2.0-flash
+        - openai/gpt-4o
+        - anthropic/claude-sonnet-4-6
+        - ollama (local)
+        - Other
+
+  - type: input
+    id: version
+    attributes:
+      label: google-adk version
+      description: Run `poetry show google-adk` and paste the version here.
