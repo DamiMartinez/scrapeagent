@@ -1,0 +1,44 @@
+name: New Skill Request
+description: Request a new scraping skill for a specific website
+labels: [new-skill]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Skills are Markdown files — no Python required. See [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md)
+        for how to write one yourself.
+
+  - type: input
+    id: website
+    attributes:
+      label: Website URL
+      placeholder: https://example.com
+    validations:
+      required: true
+
+  - type: textarea
+    id: data_fields
+    attributes:
+      label: Data Fields Needed
+      description: What data do you want to extract? List each field.
+      placeholder: |
+        - title
+        - price
+        - rating
+    validations:
+      required: true
+
+  - type: dropdown
+    id: js_required
+    attributes:
+      label: Does the site require JavaScript to load the data?
+      options:
+        - "Yes (Playwright needed)"
+        - "No (fetch is sufficient)"
+        - "Not sure"
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Sample URLs, pagination, authentication requirements, or anything else relevant.

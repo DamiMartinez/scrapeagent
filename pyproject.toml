@@ -1,0 +1,19 @@
+[project]
+name = "scrapeagent"
+version = "0.1.0"
+description = "An open-source, community-driven web scraping agent powered by Google ADK and Agent Skills."
+readme = "README.md"
+requires-python = ">=3.11"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+google-adk = "^1.25.0"
+litellm = "^1.0"
+python-dotenv = "^1.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
