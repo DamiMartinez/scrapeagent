@@ -3,7 +3,7 @@
 [![CI](https://github.com/DamiMartinez/scrapeagent/actions/workflows/ci.yml/badge.svg)](https://github.com/DamiMartinez/scrapeagent/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Google ADK](https://img.shields.io/badge/Google%20ADK-1.25%2B-4285F4.svg)](https://google.github.io/adk-docs/)
+[![Google ADK](https://img.shields.io/badge/Google%20ADK-1.26%2B-4285F4.svg)](https://google.github.io/adk-docs/)
 
 An open-source, community-driven web scraping agent powered by [Google ADK](https://google.github.io/adk-docs/) and [Agent Skills](https://agentskills.io/). Clone it, add your API key, and start scraping any website through a conversational interface — no cloud infrastructure required.
 
@@ -148,6 +148,8 @@ metadata:
 ## Instructions
 ...
 ```
+
+> **Important:** The directory name (e.g. `my-site/`) must exactly match the `name` field in `SKILL.md` frontmatter. The skill loader enforces this and will raise an error if they differ.
 
 See `scrapeagent/skills/hacker-news/SKILL.md` for a complete example.
 
