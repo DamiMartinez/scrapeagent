@@ -3,8 +3,8 @@ import pathlib
 from dotenv import load_dotenv
 from google.adk.agents import LlmAgent
 from google.adk.models.lite_llm import LiteLlm
+from google.adk.skills import load_skill_from_dir
 from google.adk.tools import skill_toolset
-from scrapeagent.skills_loader import load_skill_from_dir
 from google.adk.tools.mcp_tool.mcp_toolset import McpToolset
 from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams
 from mcp import StdioServerParameters
@@ -31,13 +31,15 @@ skill_tools = skill_toolset.SkillToolset(skills=_skills)
 
 # --- MCP toolsets ---
 # mcp-server-fetch: lightweight HTTP fetcher for static sites (no JS rendering)
+# timeout=120.0: covers both MCP connection init and per-request fetch time;
+# 30s was too short after ADK 1.28.0 started applying it to each tool call.
 fetch_toolset = McpToolset(
     connection_params=StdioConnectionParams(
         server_params=StdioServerParameters(
             command="uvx",
             args=["mcp-server-fetch"],
         ),
-        timeout=30.0,
+        timeout=120.0,
     )
 )
 
@@ -49,7 +51,7 @@ playwright_toolset = McpToolset(
             command="npx",
             args=["-y", "@playwright/mcp", "--headless"],
         ),
-        timeout=30.0,
+        timeout=120.0,
     )
 )
 
